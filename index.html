@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation of Sara Pessy & Moshe</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script>
+        function updateCountdown() {
+            const weddingDate = new Date('June 25, 2023 18:00:00').getTime();
+            const now = new Date().getTime();
+            const timeRemaining = weddingDate - now;
+            const weeks = Math.floor(timeRemaining / (1000 * 60 * 60 * 24 * 7));
+            const days = Math.floor((timeRemaining % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            const pluralize = (value, singular, plural) => value === 1 ? singular : plural;
+
+            document.querySelector('.countdown-timer').innerHTML = timeRemaining >= 0
+                ? `${weeks} ${pluralize(weeks, 'week', 'weeks')} ${days} ${pluralize(days, 'day', 'days')} ${hours} ${pluralize(hours, 'hour', 'hours')} ${minutes} ${pluralize(minutes, 'minute', 'minutes')} ${seconds} ${pluralize(seconds, 'second', 'seconds')}`
+                : '';
+
+            if (timeRemaining < 0) {
+                clearInterval(countdownInterval);
+                updateSchedule();
+            }
+        }
+
+        function updateSchedule() {
+            const now = new Date();
+            const weddingDate = new Date('June 25, 2023 18:00:00');
+            const chupaDate = new Date('June 25, 2023 19:00:00');
+            const simchasChosonDate = new Date('June 25, 2023 21:30:00');
+            const endDate = new Date('June 25, 2023 23:59:00');
+
+            if (now >= weddingDate && now < chupaDate) {
+                document.querySelector('.countdown-timer').textContent = 'Reception is happening now!';
+            } else if (now >= chupaDate && now < simchasChosonDate) {
+                document.querySelector('.countdown-timer').textContent = 'Chupa is happening now!';
+            } else if (now >= simchasChosonDate && now <= endDate) {
+                document.querySelector('.countdown-timer').textContent = 'Simchas Choson V\'Kallah is happening now!';
+            } else if (now > endDate) {
+                const timeElapsed = now - weddingDate;
+                const days = Math.floor(timeElapsed / (1000 * 60 * 60 * 24));
+                document.querySelector('.countdown-timer').textContent = `The wedding took place ${days} ${pluralize(days, 'day', 'days')} ago.`;
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+    </script>
+
+</head>
+
+<body class="bg-gray-100">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            color: #4B5563;
+        }
+    </style>
+    <header class="container mx-auto flex justify-center items-center p-6">
+        <h1 class="text-5xl font-bold">Moshe & Sara Pessy</h1>
+        <button class="fixed top-2 right-2 bg-sky-300 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-md" onclick="document.getElementById('footer').scrollIntoView({ behavior: 'smooth' });">RSVP</button>
+    </header>
+
+    <section class="hero container mx-auto text-center p-6">
+        <img src="background.jpg" alt="Wedding Photo" class="w-full max-w-3xl mx-auto">
+        <h2 class="text-4xl font-semibold py-4">Sunday, June 25, 2023</h2>
+
+        <div
+            class="countdown-timer-container bg-white text-sky-800 border-4 border-red-400 p-6 rounded-lg shadow-lg w-full sm:w-2/3 md:w-1/2 mx-auto my-4">
+            <div class="countdown-timer text-2xl font-semibold py-4"></div>
+        </div>
+
+
+    </section>
+
+
+    <section class="location container mx-auto text-center p-6">
+        <h2 class="text-3xl font-semibold py-4">The Legacy</h2>
+        <p class="text-xl font-semibold">1275 36th Street</p>
+        <p class="text-xl font-semibold">Brooklyn, NY 11218</p>
+        <div class="mt-3">
+        <a href="https://www.google.com/maps/place/The+Legacy/@40.6424704,-73.9866998,17z/data=!4m15!1m8!3m7!1s0x89c25ad66db6c22d:0xff78629101182a77!2s1275+36th+St,+Brooklyn,+NY+11218!3b1!8m2!3d40.6424704!4d-73.9845111!16s%2Fg%2F11f1sl4jfl!3m5!1s0x89c25ad66cb020c7:0x1738584c7f0df894!8m2!3d40.6424704!4d-73.9845111!16s%2Fg%2F11dfwz7yhm"
+            target="_blank" class="bg-sky-300 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded md:shadow-md md:rounded-lg">View on Google Maps</a>
+        </div>
+    </section>
+
+    <section class="flex flex-col md:flex-row justify-center items-center md:items-start space-y-2 md:space-y-0 md:space-x-2">
+        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Sara%20Pessy%20%26%20Moshe%27s%20Wedding&dates=20230625T220000Z/20230626T030000Z&details=&location=The%20Legacy%2C%201275%2036th%20Street%2C%20Brooklyn%2C%20NY%2011218&trp=false&sprop=&sprop=name:"
+            target="_blank" class="flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-red-400 hover:bg-red-700 md:shadow-md md:rounded-lg">Add to Google Calendar</a>
+        <br>
+        <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20230625T220000Z%0ADTEND:20230626T030000Z%0ASUMMARY:Sara%20Pessy%20%26%20Moshe%27s%20Wedding%0ALOCATION:The%20Legacy%2C%201275%2036th%20Street%2C%20Brooklyn%2C%20NY%2011218%0AEND:VEVENT%0AEND:VCALENDAR"
+            download="Sara_Pessy_and_Moshe_Wedding.ics" class="calendar-link flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-red-400 hover:bg-red-700 md:shadow-md md:rounded-lg">Add to
+            Apple Calendar</a>
+    </section>
+
+    <section class="wedding-schedule container mx-auto text-center p-6">
+        <h2 class="text-3xl font-semibold py-4">Wedding Day Schedule</h2>
+        <div class="schedule text-center w-full sm:w-2/3 md:w-1/2 mx-auto my-4">
+            <p class="text-xl font-semibold">Reception at 6:00 PM</p>
+            <p class="text-xl font-semibold">Chupa at 7:00 PM</p>
+            <p class="text-xl font-semibold">Simchas Choson V'Kallah at 9:30 PM</p>
+        </div>
+
+    </section>
+
+    <footer id="footer" class="container mx-auto flex justify-center items-center p-6">
+        <div class="contact-form w-full sm:w-2/3 md:w-1/2 mx-auto my-4">
+            <form name="contact" method="POST" data-netlify="true" class="text-center">
+                <input type="hidden" name="form-name" value="contact">
+                <h3 class="text-2xl font-semibold mb-4">RSVP</h3>
+                <div class="mb-4">
+                    <input type="text" name="name" placeholder="Your Name" required
+                        class="border border-gray-300 rounded-md w-full p-2">
+                </div>
+                <div class="mb-4">
+                    <input type="address" name="address" placeholder="Your Address" required
+                        class="border border-gray-300 rounded-md w-full p-2">
+                </div>
+                <div class="mb-4">
+                    <textarea name="message" placeholder="Your Message" rows="4"
+                        class="border border-gray-300 rounded-md w-full p-2"></textarea>
+                </div>
+                <button type="submit" class="bg-sky-300 hover:bg-sky-700 text-white py-2 px-4 rounded-md">Send Message</button>
+            </form>
+        </div>
+
+    </footer>
+</body>
+
+</html>
