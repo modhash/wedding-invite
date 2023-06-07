@@ -11,7 +11,7 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script>
         function updateCountdown() {
-            const weddingDate = new Date('June 25, 2023 18:00:00').getTime();
+            const weddingDate = new Date('June 25, 2023 18:30:00').getTime();
             const now = new Date().getTime();
             const timeRemaining = weddingDate - now;
             const weeks = Math.floor(timeRemaining / (1000 * 60 * 60 * 24 * 7));
@@ -34,8 +34,8 @@
 
         function updateSchedule() {
             const now = new Date();
-            const weddingDate = new Date('June 25, 2023 18:00:00');
-            const chupaDate = new Date('June 25, 2023 19:00:00');
+            const weddingDate = new Date('June 25, 2023 18:30:00');
+            const chupaDate = new Date('June 25, 2023 19:30:00');
             const simchasChosonDate = new Date('June 25, 2023 21:30:00');
             const endDate = new Date('June 25, 2023 23:59:00');
 
@@ -162,38 +162,12 @@
     <section class="wedding-schedule container mx-auto text-center p-6">
         <h2 class="text-3xl font-semibold py-4">Wedding Day Schedule</h2>
         <div class="schedule text-center w-full sm:w-2/3 md:w-1/2 mx-auto my-4">
-            <p class="text-xl font-semibold">Reception at 6:00 PM</p>
-            <p class="text-xl font-semibold">Chupa at 7:00 PM</p>
+            <p class="text-xl font-semibold">Reception at 6:30 PM</p>
+            <p class="text-xl font-semibold">Chupa at 7:30 PM</p>
             <p class="text-xl font-semibold">Simchas Choson V'Kallah at 9:30 PM</p>
         </div>
 
     </section>
-
-    <footer id="footer" class="container mx-auto flex justify-center items-center p-6">
-        <div class="contact-form w-full sm:w-2/3 md:w-1/2 mx-auto my-4">
-            <form id="rsvp-form" name="contact" method="POST" action="https://script.google.com/macros/s/AKfycbw4H1vjRbq6k52ghCw5A-E-UJaXu5XKrBU0cJB1_ZP764Wuo2ObqSjdYn3K_k2mFJze/exec" class="text-center">
-                <input type="hidden" name="form-name" value="contact">
-                <h3 class="text-2xl font-semibold mb-4">RSVP</h3>
-                <div class="mb-4">
-                    <input type="text" name="name" placeholder="Your Name" required
-                        class="border border-gray-300 rounded-md w-full p-2">
-                </div>
-                <div class="mb-4">
-                    <input type="email" name="email" placeholder="Your Email" required
-                        class="border border-gray-300 rounded-md w-full p-2">
-                </div>
-                <div class="mb-4">
-                    <input type="address" name="address" placeholder="Your Address" required
-                        class="border border-gray-300 rounded-md w-full p-2">
-                </div>
-                <div class="mb-4">
-                    <textarea name="message" placeholder="Your Message" rows="4"
-                        class="border border-gray-300 rounded-md w-full p-2"></textarea>
-                </div>
-                <button type="submit" class="bg-sky-300 hover:bg-sky-700 text-white py-2 px-4 rounded-md">Send Message</button>
-            </form>
-        </div>
-    </footer>
 
 </body>
 
